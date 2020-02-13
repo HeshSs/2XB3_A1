@@ -8,6 +8,18 @@
 * I attest that the following code being submitted is my own individual work.
 */
 
+/**
+ * 	Assumptions: <ul>
+ * 		<li> All the elements of the Set must be Strings </li>
+ * 	</ul>
+ *	Design: <ul>
+ * 		<li> The Set can't contain more than 100 elements, this is because in Java the length of arrays is final </li>
+ *  so would I have to create new array every time I added or removed an element.
+ *  	<li> We probably won't need more than 100 elements. </li>
+ *  	<li> If the Set reaches the 100th element and we try to add another element it will throw an exception that the Set is full. </li>
+ *  </ul>
+ * @author Hishmat Salehi - MacID: Salehh6
+ */
 final public class Set {
 	/**
 	 * The array that holds the content of the set
