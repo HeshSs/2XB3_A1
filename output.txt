@@ -1,21 +1,26 @@
--------------------- Entering testGetCount
+Entering testGetCount
 Test case 1 passed.
 Test case 2 passed.
--------------------- Entering testUnion
+-------------------- testGetCount Complete
+Entering testUnion
 Test case 1 passed.
 Test case 2 passed.
--------------------- Entering testToString
+-------------------- testUnion Complete
+Entering testToString
 Test case 1 passed.
 Test case 2 passed.
--------------------- Entering testProduct
+-------------------- testToString Complete
+Entering testProduct
 Test case 1 passed.
 Test case 2 passed.
--------------------- Entering testIsSubset
+-------------------- testProduct Complete
+Entering testIsSubset
 Test case 1 passed.
 Test case 2 passed.
 Test case 3 passed.
 Test case 4 passed.
--------------------- Entering testLocalMethods
+-------------------- testIsSubset Complete
+Entering testLocalMethods
 Test case 1 passed.
 Test case 2 passed.
 Test case 3 passed.
@@ -23,12 +28,16 @@ Test case 4 passed.
 Test case 5 passed.
 The Set already contains: a
 Test case 6 passed.
--------------------- Entering testDifference
+-------------------- testLocalMethods Complete
+Entering testDifference
 Test case 1 passed.
 Test case 2 passed.
--------------------- Entering testIntersection
+-------------------- testDifference Complete
+Entering testIntersection
 Test case 1 passed.
 Test case 2 passed.
--------------------- Entering testIsEqual
+-------------------- testIntersection Complete
+Entering testIsEqual
 Test case 1 passed.
 Test case 2 passed.
+-------------------- testIsEqual Complete

@@ -19,7 +19,6 @@
  *  	<li> If the Set reaches the 100th element and we try to add another element it will throw an exception that the Set is full. </li>
  *  	<li> Only the first 2 Sets from the input.txt are accepted, since we can test all methods with only 2 Sets. </li>
  *  	<li> Most tests will only run successfully with the my input.txt, since it's hard to test methods with arbitrary results.
- *  For example: I can't guess what the result of the union of your inputed sets are going to be.
  *  </ul>
  * @author Hishmat Salehi - MacID: Salehh6
  */
@@ -254,7 +253,7 @@ final public class Set {
 	
 	/**
 	 * Returns the string representation of the current Set.
-	 * @return The string representation with the format "{e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>, ... , e<sub>n</sub>}"
+	 * @return The string representation with the format "{e_1, e_2, e_3, ... , e_n}"
 	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

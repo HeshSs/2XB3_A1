@@ -8,8 +8,6 @@
 * I attest that the following code being submitted is my own individual work.
 */
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -66,7 +64,7 @@ public class testSet {
 	public void testLocalMethods() throws Exception {
 		String[] arrayR = setR.getArray();
 		
-		System.out.println("-------------------- Entering testLocalMethods");
+		System.out.println("Entering testLocalMethods");
 		assert setR.getIndex() == setR.getCount();
 		System.out.println("Test case 1 passed.");
 		assert setR.add("new").isEqual(new Set(arrayR, 7).add("new"));
@@ -77,13 +75,13 @@ public class testSet {
 		System.out.println("Test case 4 passed.");
 		assert setS.contains("f");
 		System.out.println("Test case 5 passed.");
-		
 		try {
 			setR.add("a");
 		} catch (Exception e){
 			System.out.println(e.getMessage());
 		}
 		System.out.println("Test case 6 passed.");
+		System.out.println("-------------------- testLocalMethods Complete");
 	}
 	
 	@Test
@@ -91,11 +89,12 @@ public class testSet {
 		String[] union = {"a","b","c","d","e","f","g","h","i","j","k","l"};
 		Set unionSet = new Set(union, union.length);
 
-		System.out.println("-------------------- Entering testUnion");
+		System.out.println("Entering testUnion");
 		assert setR.union(setS).isEqual(unionSet);
 		System.out.println("Test case 1 passed.");
 		assert setR.union(setS).isEqual(setS.union(setR));
 		System.out.println("Test case 2 passed.");
+		System.out.println("-------------------- testUnion Complete");
 	}
 	
 	@Test
@@ -103,12 +102,13 @@ public class testSet {
 		String[] intersection = {"f", "g"};
 		Set intersectionSet = new Set(intersection, intersection.length);
 
-		System.out.println("-------------------- Entering testIntersection");
+		System.out.println("Entering testIntersection");
 		assert setR.intersection(setS).isEqual(intersectionSet);
 		System.out.println("Test case 1 passed.");
 		assert setR.intersection(setS).isEqual(setS.intersection(setR));
 		System.out.println("Test case 2 passed.");
-		
+		System.out.println("-------------------- testIntersection Complete");
+
 	}
 	
 	@Test
@@ -116,12 +116,13 @@ public class testSet {
 		String[] difference = {"a","b","c","d","e"};
 		Set differenceSet = new Set(difference, difference.length);
 
-		System.out.println("-------------------- Entering testDifference");
+		System.out.println("Entering testDifference");
 		assert setR.difference(setS).isEqual(differenceSet);
 		System.out.println("Test case 1 passed.");
 		assert !setR.difference(setS).isEqual(setS.difference(setR));
 		System.out.println("Test case 2 passed.");
-		
+		System.out.println("-------------------- testDifference Complete");
+
 	}
 	
 	@Test
@@ -135,22 +136,26 @@ public class testSet {
 							"gf", "gg", "gh", "gi", "gj", "gk", "gl"};
 		Set productSet = new Set(product, product.length);
 		
-		System.out.println("-------------------- Entering testProduct");
+		System.out.println("Entering testProduct");
 		assert setR.product(setS).isEqual(productSet);
 		System.out.println("Test case 1 passed.");
 		if (!setR.isEqual(setS)) {
 			assert !setR.product(setS).isEqual(setS.product(setR));
 			System.out.println("Test case 2 passed.");
 		}
+		System.out.println("-------------------- testProduct Complete");
+		
 	}
 	
 	@Test
 	public void testIsEqual() {
-		System.out.println("-------------------- Entering testIsEqual");
+		System.out.println("Entering testIsEqual");
 		assert setR.isEqual(setS) == setS.isEqual(setR);
 		System.out.println("Test case 1 passed.");
 		assert setR.isEqual(setR);
 		System.out.println("Test case 2 passed.");
+		System.out.println("-------------------- testIsEqual Complete");
+
 	}
 	
 	@Test
@@ -163,7 +168,7 @@ public class testSet {
 		Set subsetBoth = new Set(subBoth, subBoth.length);
 		Set emptySet = new Set();
 		
-		System.out.println("-------------------- Entering testIsSubset");
+		System.out.println("Entering testIsSubset");
 		assert subsetS.isSubset(setS);
 		System.out.println("Test case 1 passed.");
 		assert subsetR.isSubset(setR);
@@ -172,25 +177,29 @@ public class testSet {
 		System.out.println("Test case 3 passed.");
 		assert emptySet.isSubset(setR) && emptySet.isSubset(setR);
 		System.out.println("Test case 4 passed.");
+		System.out.println("-------------------- testIsSubset Complete");
 		
 	}
 	
 	@Test
 	public void testGetCount() throws Exception {
-		System.out.println("-------------------- Entering testGetCount");
+		System.out.println("Entering testGetCount");
 		assert setS.getCount() == setR.getCount();
 		System.out.println("Test case 1 passed.");
 		assert setS.intersection(setR).getCount() == 2;
 		System.out.println("Test case 2 passed.");
+		System.out.println("-------------------- testGetCount Complete");
+
 	}
 	
 	@Test
 	public void testToString() {
-		System.out.println("-------------------- Entering testToString");
+		System.out.println("Entering testToString");
 		assert setR.toString().equals("{a, b, c, d, e, f, g}");
 		System.out.println("Test case 1 passed.");
 		assert setS.toString().equals("{f, g, h, i, j, k, l}");
 		System.out.println("Test case 2 passed.");
+		System.out.println("-------------------- testToString Complete");
 
 	}
 	
