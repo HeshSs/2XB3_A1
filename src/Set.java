@@ -17,6 +17,9 @@
  *  so would I have to create new array every time I added or removed an element.
  *  	<li> We probably won't need more than 100 elements. </li>
  *  	<li> If the Set reaches the 100th element and we try to add another element it will throw an exception that the Set is full. </li>
+ *  	<li> Only the first 2 Sets from the input.txt are accepted, since we can test all methods with only 2 Sets. </li>
+ *  	<li> Most tests will only run successfully with the my input.txt, since it's hard to test methods with arbitrary results.
+ *  For example: I can't guess what the result of the union of your inputed sets are going to be.
  *  </ul>
  * @author Hishmat Salehi - MacID: Salehh6
  */
@@ -36,7 +39,11 @@ final public class Set {
 	 * @return Array of elements of type String
 	 */
 	public String[] getArray() {
-		return array;
+		String[] newArray = new String[100];
+		for (int i = 0; i < getIndex(); i++) {
+			newArray[i] = array[i];
+		}
+		return newArray;
 	}
 	
 	/**
@@ -119,7 +126,9 @@ final public class Set {
 	 */
 	public boolean contains(String str) {
 		for (int i = 0; i < getIndex(); i++) {
-			if (getArray()[i].equals(str)) {
+			if (getArray()[i] == null) {
+				break;
+			} else if (getArray()[i].equals(str)) {
 				return true;
 			}
 		}
@@ -170,11 +179,13 @@ final public class Set {
 	 * @throws Exception
 	 */
 	public Set difference(Set S) throws Exception {
-		Set newSet = this;
+		Set newSet = new Set();
 		
-		for (int i = 0; i < S.getIndex(); i++) {
-			if (newSet.contains(S.getArray()[i])) {
-				newSet = newSet.remove(S.getArray()[i]);
+		for (int i = 0; i < getIndex(); i++) {
+			if (S.contains(getArray()[i])) {
+				continue;
+			} else {
+				newSet = newSet.add(getArray()[i]);
 			}
 		}
 		
@@ -217,15 +228,15 @@ final public class Set {
 	}
 	
 	/**
-	 * Method that checks if the Set S is a subset of current Set
+	 * Method that checks if the current Set is a subset of Set S
 	 * @param S is the Set that you are comparing the current Set with
-	 * @return true if the Set S is a subset of current Set, false otherwise
+	 * @return true if the current Set is a subset of Set S, false otherwise
 	 */
 	public boolean isSubset(Set S) {
-		boolean result = getCount() >= S.getCount();
+		boolean result = getCount() <= S.getCount();
 		
-		for (int i = 0; i < S.getIndex(); i++) {
-			if (!contains(S.getArray()[i])) {
+		for (int i = 0; i < getIndex(); i++) {
+			if (!S.contains(S.getArray()[i])) {
 				result = false;
 			}
 		}
@@ -243,7 +254,7 @@ final public class Set {
 	
 	/**
 	 * Returns the string representation of the current Set.
-	 * @return The string representation with the format "{e_1, e_2, e_3, ... , e_n}"
+	 * @return The string representation with the format "{e<sub>1</sub>, e<sub>2</sub>, e<sub>3</sub>, ... , e<sub>n</sub>}"
 	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
